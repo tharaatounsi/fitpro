@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0D0D1A"
+    android:padding="16dp">
+
+    <!-- Header -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="📢 Publications"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Bouton ajouter (visible seulement admin) -->
+    <Button
+        android:id="@+id/btnAjouterPublication"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="+ Nouvelle publication"
+        android:backgroundTint="#FF6B35"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Liste publications -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerPublications"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

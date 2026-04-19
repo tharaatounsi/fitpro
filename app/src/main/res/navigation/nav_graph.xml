@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.fitpro.myapplication2.HomeFragment"
+        android:label="Accueil"/>
+
+    <fragment
+        android:id="@+id/exercicesFragment"
+        android:name="com.fitpro.myapplication2.ExercicesFragment"
+        android:label="Exercices"/>
+
+    <fragment
+        android:id="@+id/seanceFragment"
+        android:name="com.fitpro.myapplication2.SeanceFragment"
+        android:label="Séance"/>
+
+    <fragment
+        android:id="@+id/profilFragment"
+        android:name="com.fitpro.myapplication2.ProfilFragment"
+        android:label="Profil"/>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.fitpro.myapplication2.DetailFragment"
+        android:label="Détail">
+
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0"/>
+        <argument
+            android:name="nom"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument
+            android:name="categorie"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument
+            android:name="sets"
+            app:argType="integer"
+            android:defaultValue="0"/>
+        <argument
+            android:name="reps"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument
+            android:name="niveau"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument
+            android:name="calories"
+            app:argType="integer"
+            android:defaultValue="0"/>
+        <argument
+            android:name="emoji"
+            app:argType="string"
+            android:defaultValue=""/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/publicationsFragment"
+        android:name="com.fitpro.myapplication2.PublicationsFragment"
+        android:label="Publications"/>
+
+    <fragment
+        android:id="@+id/evenementsFragment"
+        android:name="com.fitpro.myapplication2.EvenementsFragment"
+        android:label="Événements"/>
+
+</navigation>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/publicationsFragment"
+        android:icon="@drawable/ic_home"
+        android:title="Publications"/>
+
+    <item
+        android:id="@+id/evenementsFragment"
+        android:icon="@drawable/ic_seance"
+        android:title="Événements"/>
+
+    <item
+        android:id="@+id/paiementsFragment"
+        android:icon="@drawable/ic_exercice"
+        android:title="Paiements"/>
+
+    <item
+        android:id="@+id/utilisateursFragment"
+        android:icon="@drawable/ic_profil"
+        android:title="Utilisateurs"/>
+
+</menu>

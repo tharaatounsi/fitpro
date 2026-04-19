@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_admin"
+    app:startDestination="@id/publicationsFragment">
+
+    <fragment
+        android:id="@+id/publicationsFragment"
+        android:name="com.fitpro.myapplication2.PublicationsFragment"
+        android:label="Publications"/>
+
+    <fragment
+        android:id="@+id/evenementsFragment"
+        android:name="com.fitpro.myapplication2.EvenementsFragment"
+        android:label="Événements"/>
+
+    <fragment
+        android:id="@+id/paiementsFragment"
+        android:name="com.fitpro.myapplication2.PaiementsFragment"
+        android:label="Paiements"/>
+
+    <fragment
+        android:id="@+id/utilisateursFragment"
+        android:name="com.fitpro.myapplication2.UtilisateursFragment"
+        android:label="Utilisateurs"/>
+
+</navigation>

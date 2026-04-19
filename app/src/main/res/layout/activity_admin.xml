@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0D0D1A">
+
+    <!-- Header Admin -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        android:background="#1A1A2E">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="👑 Admin FitPro"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/btnAdminDeconnexion"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Déconnexion"
+            android:textSize="12sp"
+            android:backgroundTint="#FF4D6D"
+            android:textColor="#FFFFFF"/>
+
+    </LinearLayout>
+
+    <!-- Container fragments -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/adminNavHostFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:navGraph="@navigation/nav_graph_admin"
+        app:defaultNavHost="true"/>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/adminBottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1A1A2E"
+        app:itemIconTint="#FF6B35"
+        app:itemTextColor="#FF6B35"
+        app:menu="@menu/admin_bottom_nav"/>
+
+</LinearLayout>
