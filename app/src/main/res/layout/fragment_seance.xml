@@ -21,7 +21,7 @@
             android:text="MA SÉANCE"
             android:textColor="#FFFFFF"
             android:textSize="28sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/tvTotalCal"
@@ -30,7 +30,7 @@
             android:text="🔥 0 kcal"
             android:textColor="#FF4D6D"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -41,7 +41,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:padding="8dp"
-        android:clipToPadding="false" />
+        android:clipToPadding="false"/>
 
     <!-- Écran vide -->
     <LinearLayout
@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="😴"
-            android:textSize="56sp" />
+            android:textSize="56sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginTop="12dp" />
+            android:layout_marginTop="12dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -75,9 +75,36 @@
             android:textColor="#666666"
             android:textSize="14sp"
             android:gravity="center"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"/>
 
     </LinearLayout>
+
+    <!-- Timer de repos -->
+    <TextView
+        android:id="@+id/tvTimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="⏱ 60s"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:textColor="#06D6A0"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="8dp"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnTimer"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="⏱ Démarrer repos (60s)"
+        android:backgroundTint="#1A1A2E"
+        android:textColor="#06D6A0"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"/>
 
     <!-- Bouton démarrer -->
     <LinearLayout
@@ -94,7 +121,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:backgroundTint="#FF4D6D"
-            android:stateListAnimator="@null" />
+            android:stateListAnimator="@null"/>
 
     </LinearLayout>
 

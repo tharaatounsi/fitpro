@@ -12,9 +12,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -46,11 +48,30 @@ public class PublicationsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         db = FirebaseFirestore.getInstance();
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         recycler = view.findViewById(R.id.recyclerPublications);
         recycler.setLayoutManager(new LinearLayoutManager(requireContext()));
         adapter = new PublicationAdapter(liste);
         recycler.setAdapter(adapter);
+
+        // Bouton retour
+        view.findViewById(R.id.btnRetourPublications).setOnClickListener(v ->
+                Navigation.findNavController(view).popBackStack()
+        );
+
+        // Vérifier le rôle
+        db.collection("users").document(uid).get()
+                .addOnSuccessListener(doc -> {
+                    String role = doc.getString("role");
+                    if (!"admin".equals(role)) {
+                        // User → cacher bouton ajouter
+                        view.findViewById(R.id.btnAjouterPublication).setVisibility(View.GONE);
+                    } else {
+                        // Admin → cacher bouton retour
+                        view.findViewById(R.id.btnRetourPublications).setVisibility(View.GONE);
+                    }
+                });
 
         // Charger les publications
         chargerPublications();
@@ -104,7 +125,8 @@ public class PublicationsFragment extends Fragment {
             String contenu = etContenu.getText().toString().trim();
 
             if (titre.isEmpty() || contenu.isEmpty()) {
-                Toast.makeText(requireContext(), "Remplissez tous les champs", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Remplissez tous les champs",
+                        Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -118,10 +140,12 @@ public class PublicationsFragment extends Fragment {
 
             db.collection("publications").add(pub)
                     .addOnSuccessListener(ref ->
-                            Toast.makeText(requireContext(), "✅ Publication ajoutée !", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), "✅ Publication ajoutée !",
+                                    Toast.LENGTH_SHORT).show()
                     )
                     .addOnFailureListener(e ->
-                            Toast.makeText(requireContext(), "❌ Erreur : " + e.getMessage(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), "❌ Erreur : " + e.getMessage(),
+                                    Toast.LENGTH_SHORT).show()
                     );
         });
 

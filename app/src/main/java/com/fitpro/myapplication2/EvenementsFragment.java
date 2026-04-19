@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,12 +52,21 @@ public class EvenementsFragment extends Fragment {
         adapter = new EvenementAdapter(liste);
         recycler.setAdapter(adapter);
 
+        // Bouton retour
+        view.findViewById(R.id.btnRetourEvenements).setOnClickListener(v ->
+                Navigation.findNavController(view).popBackStack()
+        );
+
         // Vérifier le rôle → cacher bouton si pas admin
         db.collection("users").document(uid).get()
                 .addOnSuccessListener(doc -> {
                     String role = doc.getString("role");
                     if (!"admin".equals(role)) {
                         view.findViewById(R.id.btnAjouterEvenement).setVisibility(View.GONE);
+                    }
+                    // Cacher le bouton retour si admin
+                    if ("admin".equals(role)) {
+                        view.findViewById(R.id.btnRetourEvenements).setVisibility(View.GONE);
                     }
                 });
 
